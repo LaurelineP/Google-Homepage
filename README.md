@@ -1,5 +1,5 @@
 # google-homepage
-__*Odin Project 1 : Google Homepage.*__
+__Odin Project 1:Google Homepage.__\
 __Description__: Recreate the Google Homepage with basic HTML & CSS.
 **Objectif:**
 + Recreate the Google HomePage
