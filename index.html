@@ -14,27 +14,28 @@
         <div class="individual-group">
             <a href="#">Gmail</a>
             <a href="#">Images</a>
-            <a>
+            <a href="#">
                 <img class="apps-btn" src="./assets/show-apps-button.png" alt="show apps button">
             </a>
-            <a>
+            <a href="#">
                 <img class="notification-btn" src="./assets/notification.png" alt="notifications button">
             </a>
-            <div class="profil">
-                <!-- <img src="./assets/notification.png" alt=""> -->
-            </div>
+            <a href="#" class="profil">
+                <img class="profil-pic" src="./assets/derp-profil.png" alt="" onmouseover="trolling()">
+            </a>
         </div>
         <div class="main-google-group">
             <img class="google-logo" src="./assets/google_logo.svg" alt="Google Logo">
-            <div class="search-input">
-                <input class="google-search" type="text">
-                <img class="voice-icon" src="./assets/google_mic.svg" alt="Ok Google microphone">
+            <div class="search-input-container">
+                <input class="google-search" type="text" onmouseover="isFocusing(true)" onmouseout="isFocusing(false)">
+                <a href="#"><img class="voice-icon" src="./assets/google_mic.svg" alt="Ok Google microphone"></a>
+                <div class="spinner"></div>
             </div>
             <div class="submit-buttons">
                 <button class="search-submit">Google Search</button>
                 <button class="lucky-submit">I'm Felling Lucky</button>
             </div>
-            <p class="language">Google offered : <a href="#">France</a></p>
+            <p class="language-option">Google offered in: <a class="language" href="#">Français</a></p>
         </div>
         <div class="footer-group">
             <div class="country">
@@ -57,4 +58,12 @@
     </div>
     
 </body>
+
+<script>
+    /*Extra : adding extra effect on search-input input on hover*/
+    function isFocusing(yesOrNot) {
+        var action = yesOrNot == true ? 'add' : 'remove';
+        document.querySelector('.search-input-container').classList[action]("focusing");
+    }
+</script>
 </html>

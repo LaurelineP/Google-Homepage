@@ -6,6 +6,19 @@
     --global-border-radius: 2px;
 }
 
+@keyframes swing {
+    15% { transform: rotate(20deg) }
+    30% { transform: rotate(-20deg) }
+    50% { transform: rotate(10deg) }
+    65% { transform: rotate(-10deg) }
+    80% { transform: rotate(5deg) }
+    100% { transform: rotate(0deg) }
+}
+@keyframes spin {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+
 *:focus {
     outline: none;
 }
@@ -14,10 +27,14 @@
     text-decoration: none;
     color: #777;
 }
+*:link:hover{
+    color: black;
+}
 
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* SAME BEHAVIOR */
@@ -27,9 +44,16 @@ body {
 .apps-btn , .notification-btn , .voice-icon{
     height: var(--icons-size);
     width: var(--icons-size);
-    opacity: 0.6;
+    opacity: 0.5;
 }
-.search-input, button {
+.apps-btn , .notification-btn {
+    position: relative;
+    top: 5px;
+}
+.apps-btn:hover, .notification-btn:hover {
+    opacity: 1;
+}
+.search-input-container, button {
     border-radius: var(--global-border-radius)
 }
 
@@ -37,57 +61,103 @@ body {
 /* INDIVIDUAL-GROUP */
 .individual-group {
     position: absolute;
-    right: 30px;
+    right: 0;
 }
-a {
+.individual-group > a:not(:last-child) {
     margin-right: 20px;
+    line-height: 20px;
+    font-size: 13px;
 }
-.profil {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background: red;
-    border-radius: 50%;
+.individual-group > a:not(:last-child):hover {
+    color: black;
+}
+.profil-pic {
+    position: relative;
+    height: 36px;
+    top: 12px;
+    left: -15px;
+}
+.profil-pic:hover {
+    animation: spin 2s 1 ease;
+}
+a .notification-btn {
+    margin-right: 0;
 }
 
 /* MAIN-GOOGLE-GROUP */
 .main-google-group {
-    margin: 0 10%;
+    width: 600px;
+    margin : 0 auto;
 }
-.search-input {
+.google-logo {
+    height: inherit;
+    margin: 33% 28% 0 28%;
+}
+.search-input-container {
     height: 45px;
-    width: 40%;
+    width: 40vw;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
-    margin: 20px;
+    margin: 20px auto;
 }
-.search-input>input:focus {
-    box-shadow: 0 1px 3px 1px black;
+.focusing {
+    box-shadow: 0 2px 4px 1px rgba(0,0,0,0.16),0 0 2px 0.5px rgba(0,0,0,0.09);
 }
 input {
-    height: 30px;
-    width: 90%;
-    margin: 5px;
+    position: relative;
+    bottom: 12px;
+    left: 20px;
+    width: 85%;
     border: none;
-    padding: 2px 10px 0;
     font-size: 1em;
-    line-height: 1.6;
+    margin: auto;
 }
 .voice-icon {
+    position: relative;
     opacity: unset;
+    margin: 10px auto;
+    padding: 2px;
+    line-height: 3em;
+    left: calc(5% + 15px);
+}
+.voice-icon:hover {
+    animation: swing 1s 1 ease-in-out;
+}
+a:hover + .spinner {
+    visibility: visible;
+}
+
+.submit-buttons {
+    width: 300px;
+    margin: 30px auto;
 }
 button {
     height: 36px;
     line-height: 27px;
-    margin-right: 10px;
     border: none;
     background:#F1F1F1;
-    font-weight: 800;
+    font-weight: 700;
     color:#888;
     padding: 0 20px;
+}
+.submit-buttons button:first-child{
+    margin-right: 10px;
 }
 button:hover {
     box-shadow: 0 1px 2px 1px #CCC;
 }
+.language-option {
+    text-align: center;
+    font-size: 13px;
+}
+.language {
+    color: #009;
+}
+.language:hover{
+    color: #009;
+    text-decoration: underline;
+}
+
+
 /* FOOTER-GROUP */
 .footer-group{
     position: absolute;
@@ -106,13 +176,18 @@ button:hover {
 }
 .country > p {
     margin: 0;
-    line-height: 2.5em;
+    line-height: 3em;
     padding: 0 20px;
+    font-size: 14px;
 }
 .left-group, .right-group {
     position: absolute;
-    line-height: 2.7em;
-    font-size: 0.9em;
+    line-height: 3em;
+    font-size: 0.8em;
+}
+
+.left-group > *, .right-group > * {
+    margin-right: 20px;
 }
 
 .left-group {
