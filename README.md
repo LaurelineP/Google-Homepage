@@ -8,3 +8,4 @@ Objectif :
 
 Bug : 
 + When openning devTool : it seems to not be able to scroll down when the window get smaller.
++ Cross browser not done yet.
