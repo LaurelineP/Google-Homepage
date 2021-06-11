@@ -9,4 +9,4 @@ __Description__: Recreate the Google Homepage with basic HTML & CSS.
 + Cross browser not done yet.
 
 ## Extra:
-+ 2 little extra funny things :) otherwise it's not fun att all.
++ 2 extra fun things :) otherwise it's not fun.
